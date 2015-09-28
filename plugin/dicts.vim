@@ -20,10 +20,11 @@ if !empty(g:dict_spec)
     for name in keys(g:dict_spec)
         let list = g:dict_spec[name]
         for dict in list
-            let path = expand(globpath(&rtp, 'dicts/' . dict .'.txt'))
-            if path != ''
-                exec "au Filetype,BufRead,BufNewFile " . name . " setlocal dictionary+=" . path
-            endif
+            for path in split(globpath(&rtp, 'dicts/' . dict .'.txt'), "\n")
+                if path != ''
+                    exec "au Filetype,BufRead,BufNewFile " . name . " setlocal dictionary+=" . path
+                endif
+            endfor
         endfor
     endfor
 endif
