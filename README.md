@@ -3,7 +3,7 @@ dicts.vim
 
 This plugin is used to specify vim dictionary files(`:h dictionary`)
 
-#### Etc.
+#### Setting
 
     " file type => dict list
     let g:dict_spec = {
